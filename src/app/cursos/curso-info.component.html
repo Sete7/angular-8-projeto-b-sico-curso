@@ -1,0 +1,43 @@
+<h1>Lista de Curso</h1>
+
+<form #form="ngForm" *ngIf="curso">
+    <label class="col-form-label"  for="nome">Nome:</label>
+    <div class="form-group">
+        <input type="text" class="form-control" id="nome" [(ngModel)]="curso.name" required
+         #nome="ngModel" name="nome" [ngClass]="{'is-invalid': nome.invalid}" >
+        <div class="invalid-feedback">
+            <span>Campo nome é obrigatório</span>
+        </div>
+    </div>
+
+    <label class="col-form-label"  for="preco">Preco:</label>
+    <div class="form-group">
+        <input type="text" class="form-control" id="preco" [(ngModel)]="curso.price" required
+         #preco="ngModel" name="preco" [ngClass]="{'is-invalid': preco.invalid}" >
+        <div class="invalid-feedback">
+            <span>Campo preco é obrigatório</span>
+        </div>
+    </div>
+
+    <label class="col-form-label"  for="rating">Rating:</label>
+    <div class="form-group">
+        <input type="text" class="form-control" id="rating" [(ngModel)]="curso.rating" required
+         #rating="ngModel" name="rating" [ngClass]="{'is-invalid': rating.invalid}" >
+        <div class="invalid-feedback">
+            <span>Campo rating é obrigatório</span>
+        </div>
+    </div>
+
+    <label class="col-form-label"  for="descricao">Descrição:</label>
+    <div class="form-group">
+        <textarea rows="5" cols="15" type="text" class="form-control" id="descricao" [(ngModel)]="curso.description" required
+         #descricao="ngModel" name="descricao" [ngClass]="{'is-invalid': descricao.invalid}" ></textarea>
+        <div class="invalid-feedback">
+            <span>Campo descrição é obrigatório</span>
+        </div>
+    </div>
+
+    <button class="btn btn-primary mr-2" (click)="salvar()"  [disabled]="!form">Salva</button>
+    <button [routerLink]="['/curso-lista']"  class="btn btn-secondary">Back</button>
+
+</form>
